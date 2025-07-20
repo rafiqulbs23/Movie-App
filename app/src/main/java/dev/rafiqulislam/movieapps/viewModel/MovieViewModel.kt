@@ -20,7 +20,7 @@ class MovieViewModel(repository:Repository):ViewModel() {
     init {
         viewModelScope.launch {
             try {
-                moviesFromApi = repository.getPopularMovies("YOUR_API_KEY_HERE")
+                moviesFromApi = repository.getPopularMovies("267d6a9d43bff4f2bce565524b331620")
                 movies = moviesFromApi
             } catch (e: Exception) {
 
