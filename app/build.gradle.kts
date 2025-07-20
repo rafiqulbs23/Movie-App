@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
 
 }
@@ -60,34 +59,19 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Navigation
-    implementation(libs.navigation.compose)
-
-    // Room
-    implementation(libs.room.ktx)
-    implementation(libs.room.paging)
-    implementation(libs.room.compiler)
-
-
-    // Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.44")
-    kapt("androidx.hilt:hilt-compiler:1.1.0")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-
-    // Retrofit & OkHttp
+    //Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-    implementation(libs.okhttp)
-    implementation(libs.logging.interceptor)
 
-    // Coil
+    // room
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    // coil
     implementation(libs.coil.compose)
 
-    // Icons & System UI
-    // Extended Icons
-    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+    // viewmodel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
-    // system UI Controller
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
 }
