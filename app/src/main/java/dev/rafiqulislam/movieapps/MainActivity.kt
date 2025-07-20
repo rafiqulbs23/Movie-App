@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         // repository
-        val repository  = Repository()
+        val repository  = Repository(applicationContext)
 
         // view model factory
         val viewModelFactory = MovieViewModelFactory(repository)
