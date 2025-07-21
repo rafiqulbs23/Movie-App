@@ -74,4 +74,7 @@ dependencies {
     // viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
+    // navigation
+    implementation("androidx.navigation:navigation-compose:2.9.2")
+
 }

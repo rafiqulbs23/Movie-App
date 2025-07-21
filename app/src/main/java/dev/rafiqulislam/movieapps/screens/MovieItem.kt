@@ -1,6 +1,7 @@
 package dev.rafiqulislam.movieapps.screens
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -17,17 +18,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import dev.rafiqulislam.movieapps.retrofit.Movie
 
 @Composable
-fun MovieItem(movie: Movie){
+fun MovieItem(movie: Movie, navController: NavHostController){
 
     Card(elevation = CardDefaults
         .cardElevation(8.dp),
         modifier = Modifier
             .padding(12.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable {
+                navController.navigate("movie_details/${movie.id}")
+            },
 
         border = BorderStroke(2.dp, Color.Gray)
     ) {

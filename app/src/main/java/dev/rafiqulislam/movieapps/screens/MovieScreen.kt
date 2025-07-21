@@ -12,15 +12,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHostController
 import dev.rafiqulislam.movieapps.viewModel.MovieViewModel
 
 @Composable
-fun MovieScreen(viewModel: MovieViewModel, modifier: Modifier,){
+fun MovieScreen(viewModel: MovieViewModel, modifier: Modifier, navController: NavHostController,){
 
         viewModel.movies.let { result ->
             when (result) {
                 is dev.rafiqulislam.movieapps.utils.Result.Loading -> MovieLoadingScreen()
-                is dev.rafiqulislam.movieapps.utils.Result.Success -> MovieList(movies = result.data,modifier)
+                is dev.rafiqulislam.movieapps.utils.Result.Success -> MovieList(movies = result.data,modifier,
+                    navController= navController)
                 is dev.rafiqulislam.movieapps.utils.Result.Error -> MovieErrorScreen(
                     viewModel = viewModel,
                     errorMessage = result.message,

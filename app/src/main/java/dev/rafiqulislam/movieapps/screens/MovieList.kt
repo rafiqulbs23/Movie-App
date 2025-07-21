@@ -8,10 +8,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import dev.rafiqulislam.movieapps.retrofit.Movie
 
 @Composable
-fun MovieList(movies: List<Movie>, modifier: Modifier){
+fun MovieList(movies: List<Movie>, modifier: Modifier, navController: NavHostController){
 
     if (movies.isEmpty()) {
         Box(
@@ -24,7 +25,7 @@ fun MovieList(movies: List<Movie>, modifier: Modifier){
     } else {
         LazyColumn(modifier = modifier) {
             items(movies) { movie ->
-                MovieItem(movie)
+                MovieItem(movie,navController= navController)
             }
         }
     }
